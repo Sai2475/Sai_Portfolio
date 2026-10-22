@@ -1,0 +1,20 @@
+{
+  "name": "sai-sukumar-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio of Sai Sukumar — AI/ML Engineer, Deep Learning Researcher & Builder",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "ai-ml",
+    "deep-learning",
+    "computer-vision",
+    "researcher",
+    "genai"
+  ],
+  "author": "Sai Sukumar",
+  "license": "MIT"
+}
