@@ -1,11 +1,11 @@
 /**
  * Sai Sukumar — Portfolio Application Logic
- * Dynamic hydration, interactive filters, search, clipboard actions, and navigation.
+ * Dynamic hydration, interactive filters, search, clipboard actions, navigation, and micro-interactions.
  */
 
 import { PORTFOLIO_DATA } from './data.js';
 
-// SVG Icon Helper for crisp, self-contained SVG rendering
+// SVG Icons
 const ICONS = {
   externalLink: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
   github: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`,
@@ -13,12 +13,17 @@ const ICONS = {
   arrowUpRight: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`,
   check: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
   bookOpen: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
-  clock: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`
+  clock: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
+  code: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+  brain: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>`,
+  layers: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
+  sparkles: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+  cloud: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   renderProfile();
-  renderPillars();
+  renderAboutSection();
   renderProjects();
   renderPublications();
   renderSkills();
@@ -31,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillsSearch();
   initEmailCopy();
   initContactForm();
+  initPortraitTilt();
 });
 
 // Render Profile & Hero Content
@@ -39,7 +45,6 @@ function renderProfile() {
   
   document.title = `${profile.shortName} — AI/ML Engineer & Deep Learning Researcher`;
 
-  // Status Badge
   const statusContainer = document.getElementById('hero-status-container');
   if (statusContainer) {
     statusContainer.innerHTML = `
@@ -50,13 +55,11 @@ function renderProfile() {
     `;
   }
 
-  // Hero Headline & Bio
   const heroBio = document.getElementById('hero-bio');
   if (heroBio) {
     heroBio.textContent = profile.subheadline;
   }
 
-  // Portrait Setup
   const portraitImg = document.getElementById('hero-portrait-img');
   if (portraitImg) {
     portraitImg.src = profile.assets.portrait;
@@ -66,29 +69,49 @@ function renderProfile() {
     };
   }
 
-  // Resume Links
   const resumeBtns = document.querySelectorAll('.btn-resume-link');
   resumeBtns.forEach(btn => {
     btn.href = profile.assets.resumePdf;
   });
 }
 
-// Render "What I Care About" Focus Areas
-function renderPillars() {
+// Render Complete About Section & Focus Areas
+function renderAboutSection() {
   const { about } = PORTFOLIO_DATA;
-  const container = document.getElementById('about-pillars');
-  if (!container) return;
+  
+  const aboutTextContainer = document.getElementById('about-text-content');
+  if (aboutTextContainer) {
+    aboutTextContainer.innerHTML = `
+      <p class="lead">${about.lead}</p>
+      ${about.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      
+      <div class="about-mission-card">
+        ${about.mission}
+      </div>
 
-  container.innerHTML = about.pillars.map((pillar) => `
-    <div class="pillar-card">
-      <div class="mono-label" style="margin-bottom: 0.35rem;">Focus Area ${pillar.number}</div>
-      <h3 class="pillar-title">${pillar.title}</h3>
-      <p class="pillar-desc">${pillar.desc}</p>
-    </div>
-  `).join('');
+      <div style="margin-top: 1.75rem;">
+        <a href="#contact" class="btn btn-outline-amber">
+          <span>Discuss AI Collaborations</span>
+          ${ICONS.arrowUpRight}
+        </a>
+      </div>
+    `;
+  }
+
+  const pillarsContainer = document.getElementById('about-pillars');
+  if (pillarsContainer) {
+    pillarsContainer.innerHTML = about.pillars.map((pillar) => `
+      <div class="pillar-card">
+        <span class="pillar-watermark">${pillar.number}</span>
+        <div class="mono-label" style="margin-bottom: 0.35rem;">Focus Area ${pillar.number}</div>
+        <h3 class="pillar-title">${pillar.title}</h3>
+        <p class="pillar-desc">${pillar.desc}</p>
+      </div>
+    `).join('');
+  }
 }
 
-// Render Projects (Reshuffled: EstatePulse -> DataWhiz -> GridScan, with distinct pipelines)
+// Render Projects (EstatePulse -> DataWhiz -> GridScan)
 function renderProjects(filter = 'all') {
   const { projects } = PORTFOLIO_DATA;
   const container = document.getElementById('projects-container');
@@ -158,7 +181,7 @@ function renderProjects(filter = 'all') {
   `).join('');
 }
 
-// Render Research & Publications (including ongoing bone tumor classification manuscript)
+// Render Research & Publications
 function renderPublications() {
   const { publications } = PORTFOLIO_DATA;
   const container = document.getElementById('publications-container');
@@ -213,7 +236,7 @@ function renderPublications() {
   `).join('');
 }
 
-// Render Skills Matrix (Clean, uniform tags without dots, tool counts, or dates)
+// Render Skills Matrix with Icons & Visual Depth
 function renderSkills(query = '') {
   const { skills } = PORTFOLIO_DATA;
   const container = document.getElementById('skills-container');
@@ -226,9 +249,14 @@ function renderSkills(query = '') {
 
     if (query && filteredItems.length === 0) return '';
 
+    const iconSvg = ICONS[cat.icon] || ICONS.code;
+
     return `
       <div class="skill-category-card">
-        <h3 class="skill-category-name">${cat.name}</h3>
+        <div class="skill-category-header">
+          <div class="skill-category-icon">${iconSvg}</div>
+          <h3 class="skill-category-name">${cat.name}</h3>
+        </div>
         <div class="skill-items-list">
           ${filteredItems.map(item => `
             <span class="skill-pill">
@@ -241,7 +269,7 @@ function renderSkills(query = '') {
   }).join('');
 }
 
-// Render Experience Timeline (Internships & Leadership only - no offer letter)
+// Render Experience & Leadership
 function renderExperience() {
   const { experience } = PORTFOLIO_DATA;
   const container = document.getElementById('experience-timeline');
@@ -398,6 +426,34 @@ function showToast(message) {
   }, 3200);
 }
 
+// Interactive 3D Tilt on Portrait
+function initPortraitTilt() {
+  const frame = document.querySelector('.portrait-frame-wrapper');
+  if (!frame) return;
+
+  frame.addEventListener('mousemove', (e) => {
+    const rect = frame.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -7;
+    const rotateY = ((x - centerX) / centerX) * 7;
+
+    const inner = frame.querySelector('.portrait-frame');
+    if (inner) {
+      inner.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    }
+  });
+
+  frame.addEventListener('mouseleave', () => {
+    const inner = frame.querySelector('.portrait-frame');
+    if (inner) {
+      inner.style.transform = `perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    }
+  });
+}
+
 // Sticky Header & Navigation Spy
 function initNavigation() {
   const header = document.querySelector('.site-header');
@@ -406,14 +462,12 @@ function initNavigation() {
   const mobileToggle = document.getElementById('mobile-nav-toggle');
   const navLinksContainer = document.querySelector('.nav-links');
 
-  // Mobile menu toggle
   if (mobileToggle && navLinksContainer) {
     mobileToggle.addEventListener('click', () => {
       const isOpen = navLinksContainer.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close on link click
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navLinksContainer.classList.remove('open');
@@ -422,7 +476,6 @@ function initNavigation() {
     });
   }
 
-  // Scroll Listener
   window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset;
 

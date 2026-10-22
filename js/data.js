@@ -36,32 +36,35 @@ export const PORTFOLIO_DATA = {
   },
 
   about: {
-    lead: "I engineer intelligent applications that connect theoretical deep learning research with robust, real-world deployment.",
+    tag: "01 // Profile & Focus Areas",
+    heading: "From AI Research to Real-World Applications",
+    lead: "I’m an AI/ML engineer in the making, driven by a simple idea: AI is most valuable when strong research translates into something people can actually use.",
     paragraphs: [
-      "I am an Artificial Intelligence and Machine Learning undergraduate at SRM Institute of Science and Technology (maintaining a 9.51/10 CGPA). My work focuses on deep learning model architecture, computer vision feature fusion, and generative AI systems with grounded semantic retrieval.",
-      "As an AI Research Intern at ION Aerospace India, I contributed to deep learning-based object detection and SLAM pipelines for autonomous drone navigation under embedded edge constraints. In addition to peer-reviewed IEEE research in breast ultrasound classification and crop disease detection, I lead research and technical development across student organizations including the SRM ACM SIGAPP Chapter and the IoT Alliance Club.",
-      "Beyond academic research, I build and deploy production-ready web applications—ranging from RAG real estate research platforms with vector databases to automated natural-language data analysis agents."
+      "Currently pursuing my B.Tech in Artificial Intelligence and Machine Learning at SRM Institute of Science and Technology, I work across deep learning, computer vision, and Generative AI. My experience spans developing attention-enhanced models for medical imaging and agricultural disease classification, building RAG-powered applications, and exploring computer vision for autonomous drone systems during my internship at ION Aerospace.",
+      "Beyond research, I enjoy engineering complete solutions—from experimenting with models and designing retrieval pipelines to building interactive applications that solve practical problems. With two published IEEE research papers and projects such as EstatePulse and DataWhiz, I’m continually exploring how to bridge the gap between AI experimentation and usable software.",
+      "Alongside my technical work, I contribute to student technical communities through research and leadership. I’m also beginning my professional journey with an Associate Software Engineer offer from Accenture, while continuing to grow as an engineer, researcher, and builder."
     ],
+    mission: "My goal is simple: build intelligent systems that are technically sound, practically useful, and designed with real people in mind.",
     pillars: [
       {
         number: "01",
         title: "Machine Learning & Deep Learning",
-        desc: "Designing specialized convolutional backbones (DenseNet), attention blocks (MEAB, Triplet), and feature fusion modules for complex medical imaging and vision classification benchmarks."
+        desc: "Developing and evaluating deep learning models for challenging classification problems, with an emphasis on convolutional architectures, attention mechanisms, feature enhancement, and model performance in medical imaging and agricultural computer vision."
       },
       {
         number: "02",
-        title: "Generative AI & Agentic AI",
-        desc: "Architecting end-to-end RAG pipelines with chunking strategies, vector search (ChromaDB), hallucination reduction, and sandboxed code execution agents."
+        title: "Generative AI & Intelligent Applications",
+        desc: "Building LLM-powered applications using retrieval-augmented generation, semantic search, embeddings, and vector databases. Interested in developing reliable AI workflows that turn unstructured information into useful, source-grounded insights."
       },
       {
         number: "03",
-        title: "Edge AI & Autonomous Systems",
-        desc: "Optimizing computer vision models and SLAM modules for real-time inference on resource-constrained embedded drone hardware."
+        title: "Computer Vision & Autonomous Systems",
+        desc: "Exploring visual perception, object detection, feature tracking, and SLAM for autonomous systems. My experience at ION Aerospace introduced me to the challenges of applying computer vision in drone navigation and resource-constrained environments."
       },
       {
         number: "04",
-        title: "Data Science & Applied Analytics",
-        desc: "Building automated data processing workflows, statistical exploratory data analysis, and interactive insight generation engines for complex tabular datasets."
+        title: "Applied AI & Data Intelligence",
+        desc: "Turning raw data into actionable insights through automated analysis, visualization, and interactive applications. I enjoy combining Python, data processing, and LLM-based workflows to simplify complex analytical tasks."
       }
     ]
   },
@@ -212,7 +215,7 @@ export const PORTFOLIO_DATA = {
     }
   ],
 
-  // Experience & Leadership Timeline (No offer letter in experience, purely technical internships and club leadership)
+  // Experience & Leadership Timeline
   experience: [
     {
       id: "srm-acm-sigapp",
@@ -266,27 +269,32 @@ export const PORTFOLIO_DATA = {
     }
   ],
 
-  // Clean, uniform skills list (Java removed, no tool counts or dates)
+  // Skills with categorized modern metadata
   skills: {
     categories: [
       {
         name: "Programming Languages",
+        icon: "code",
         items: ["Python", "C++", "JavaScript", "SQL", "C"]
       },
       {
         name: "AI & Deep Learning",
+        icon: "brain",
         items: ["Deep Learning", "Computer Vision", "Generative AI", "Agentic AI", "RAG Systems", "NLP", "Feature Engineering", "EDA & Statistics"]
       },
       {
         name: "Frameworks & Libraries",
+        icon: "layers",
         items: ["PyTorch", "TensorFlow", "LangChain", "LangGraph", "Transformers", "Hugging Face", "OpenCV", "Scikit-learn", "Pandas", "FastAPI", "Flask", "Streamlit", "NLTK"]
       },
       {
         name: "Vector & LLM Ecosystem",
+        icon: "sparkles",
         items: ["ChromaDB", "Groq Cloud LLMs", "LLaMA 3 / 3.3", "BGE Embeddings", "Claude Code", "MCP (Model Context Protocol)", "Prompt Engineering"]
       },
       {
         name: "Developer Tools & Cloud",
+        icon: "cloud",
         items: ["Git / GitHub", "Docker", "AWS SageMaker", "Microsoft Azure", "MongoDB", "Postman", "Power BI", "n8n Automation"]
       }
     ]
