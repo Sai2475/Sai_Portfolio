@@ -7,20 +7,13 @@ import { PORTFOLIO_DATA } from './data.js';
 
 // SVG Icon Helper for crisp, self-contained SVG rendering
 const ICONS = {
-  externalLink: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
-  github: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`,
-  linkedin: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`,
-  mail: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`,
-  copy: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`,
-  check: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
-  download: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`,
-  checkCircle: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
-  bookOpen: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
-  sparkles: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+  externalLink: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
+  github: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`,
+  checkCircle: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
   arrowUpRight: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`,
-  arrowUp: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>`,
-  search: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
-  award: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`
+  check: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
+  bookOpen: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
+  clock: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderProfile() {
   const { profile } = PORTFOLIO_DATA;
   
-  // Document title
   document.title = `${profile.shortName} — AI/ML Engineer & Deep Learning Researcher`;
 
   // Status Badge
@@ -70,7 +62,6 @@ function renderProfile() {
     portraitImg.src = profile.assets.portrait;
     portraitImg.alt = `Portrait of ${profile.fullName}`;
     portraitImg.onerror = () => {
-      // Graceful fallback if relative asset directory differs
       portraitImg.src = 'public/' + profile.assets.portrait;
     };
   }
@@ -82,22 +73,22 @@ function renderProfile() {
   });
 }
 
-// Render "What I Care About" Pillars
+// Render "What I Care About" Focus Areas
 function renderPillars() {
   const { about } = PORTFOLIO_DATA;
   const container = document.getElementById('about-pillars');
   if (!container) return;
 
-  container.innerHTML = about.pillars.map((pillar, idx) => `
+  container.innerHTML = about.pillars.map((pillar) => `
     <div class="pillar-card">
-      <div class="mono-label" style="margin-bottom: 0.4rem;">0${idx + 1} // FOCUS AREA</div>
+      <div class="mono-label" style="margin-bottom: 0.35rem;">Focus Area ${pillar.number}</div>
       <h3 class="pillar-title">${pillar.title}</h3>
       <p class="pillar-desc">${pillar.desc}</p>
     </div>
   `).join('');
 }
 
-// Render Projects
+// Render Projects (Reshuffled: EstatePulse -> DataWhiz -> GridScan, with distinct pipelines)
 function renderProjects(filter = 'all') {
   const { projects } = PORTFOLIO_DATA;
   const container = document.getElementById('projects-container');
@@ -151,17 +142,13 @@ function renderProjects(filter = 'all') {
       <div class="project-schematic">
         <div class="schematic-header">
           <span>Architecture Flow</span>
-          <span class="status-pulse" style="width:5px;height:5px;"></span>
+          <span class="status-pulse" style="width:6px;height:6px;"></span>
         </div>
         <div class="schematic-flow">
-          ${(project.pipeline || [
-            { step: "01", label: "Input Ingestion & Chunking" },
-            { step: "02", label: "Embeddings & Vector Indexing" },
-            { step: "03", label: "LLM Reasoning & Output Validation" }
-          ]).map((p, pIdx, arr) => `
+          ${project.pipeline.map((p, pIdx, arr) => `
             <div class="flow-step">
               <span class="flow-step-num">${p.step}</span>
-              <span>${p.label}</span>
+              <span class="flow-step-text">${p.label}</span>
             </div>
             ${pIdx < arr.length - 1 ? '<div class="flow-arrow">↓</div>' : ''}
           `).join('')}
@@ -171,24 +158,25 @@ function renderProjects(filter = 'all') {
   `).join('');
 }
 
-// Render Research & Publications
+// Render Research & Publications (including ongoing bone tumor classification manuscript)
 function renderPublications() {
   const { publications } = PORTFOLIO_DATA;
   const container = document.getElementById('publications-container');
   if (!container) return;
 
   container.innerHTML = publications.map(pub => `
-    <article class="research-card">
+    <article class="research-card ${pub.isUnderReview ? 'research-card-featured' : ''}">
       <div>
         <div class="research-header">
           <div class="research-badge-strip">
-            <span class="ieee-badge">${pub.badge}</span>
+            <span class="${pub.isUnderReview ? 'under-review-badge' : 'ieee-badge'}">${pub.badge}</span>
             <span class="research-accuracy">${pub.accuracy}</span>
           </div>
           <span class="mono-meta">${pub.venue} · ${pub.date}</span>
         </div>
 
         <h3 class="research-title">${pub.title}</h3>
+        ${pub.authors ? `<div class="mono-meta" style="margin-bottom: 0.85rem; color: var(--text-secondary);"><span style="color:var(--accent-amber); font-weight:600;">Authors:</span> ${pub.authors}</div>` : ''}
 
         <div class="research-arch-box">
           <div class="arch-label">Model Architecture</div>
@@ -200,7 +188,7 @@ function renderPublications() {
         <p class="research-abstract">${pub.abstract}</p>
 
         <div class="research-contributions">
-          <div class="mono-label" style="margin-bottom: 0.6rem; font-size: 0.7rem;">Key Architectural Novelties</div>
+          <div class="mono-label" style="margin-bottom: 0.6rem; font-size: 0.72rem;">Key Architectural Contributions</div>
           <ul>
             ${pub.keyContributions.map(c => `<li>${c}</li>`).join('')}
           </ul>
@@ -208,17 +196,24 @@ function renderPublications() {
       </div>
 
       <div class="research-footer">
-        <span class="mono-meta">Verified Research Output</span>
-        <a href="${pub.ieeeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-amber btn-sm">
-          <span>Read on IEEE Xplore</span>
-          ${ICONS.arrowUpRight}
-        </a>
+        <span class="mono-meta">${pub.isUnderReview ? 'Clinical XAI & Dual-Track Feature Fusion' : 'Peer-Reviewed IEEE Conference'}</span>
+        ${pub.ieeeUrl ? `
+          <a href="${pub.ieeeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-amber btn-sm">
+            <span>Read on IEEE Xplore</span>
+            ${ICONS.arrowUpRight}
+          </a>
+        ` : `
+          <span class="manuscript-status-tag">
+            ${ICONS.clock}
+            <span>Under Review / BTXRD Benchmark</span>
+          </span>
+        `}
       </div>
     </article>
   `).join('');
 }
 
-// Render Skills Matrix
+// Render Skills Matrix (Clean, uniform tags without dots, tool counts, or dates)
 function renderSkills(query = '') {
   const { skills } = PORTFOLIO_DATA;
   const container = document.getElementById('skills-container');
@@ -226,21 +221,18 @@ function renderSkills(query = '') {
 
   container.innerHTML = skills.categories.map(cat => {
     const filteredItems = query 
-      ? cat.items.filter(item => item.name.toLowerCase().includes(query.toLowerCase()))
+      ? cat.items.filter(item => item.toLowerCase().includes(query.toLowerCase()))
       : cat.items;
 
     if (query && filteredItems.length === 0) return '';
 
     return `
       <div class="skill-category-card">
-        <h3 class="skill-category-name">
-          <span>${cat.name}</span>
-          <span class="mono-meta" style="font-size:0.7rem;">${filteredItems.length} TOOLS</span>
-        </h3>
+        <h3 class="skill-category-name">${cat.name}</h3>
         <div class="skill-items-list">
           ${filteredItems.map(item => `
-            <span class="skill-pill ${item.highlight ? 'highlight' : ''}">
-              ${item.name}
+            <span class="skill-pill">
+              ${item}
             </span>
           `).join('')}
         </div>
@@ -249,14 +241,14 @@ function renderSkills(query = '') {
   }).join('');
 }
 
-// Render Experience Timeline
+// Render Experience Timeline (Internships & Leadership only - no offer letter)
 function renderExperience() {
   const { experience } = PORTFOLIO_DATA;
   const container = document.getElementById('experience-timeline');
   if (!container) return;
 
   container.innerHTML = experience.map(exp => `
-    <div class="timeline-item ${exp.isOffer ? 'offer-item' : ''}">
+    <div class="timeline-item">
       <div class="timeline-marker"></div>
       <div class="timeline-header">
         <h3 class="timeline-role">${exp.role}</h3>
@@ -265,11 +257,10 @@ function renderExperience() {
       <div class="timeline-company">
         <span style="color: var(--text-primary); font-weight:600;">${exp.company}</span>
         <span class="mono-meta">· ${exp.location}</span>
-        ${exp.isOffer ? '<span class="status-badge" style="margin:0; padding:0.15rem 0.6rem; font-size:0.68rem;">Offer Received</span>' : ''}
       </div>
       <p class="timeline-desc">${exp.description}</p>
       <div class="timeline-skills">
-        ${exp.skills.map(s => `<span class="tech-tag" style="font-size:0.7rem;">${s}</span>`).join('')}
+        ${exp.skills.map(s => `<span class="tech-tag" style="font-size:0.75rem;">${s}</span>`).join('')}
       </div>
     </div>
   `).join('');
@@ -300,7 +291,7 @@ function renderExploring() {
 
   container.innerHTML = currentlyExploring.map(item => `
     <div class="exploring-card">
-      <div class="mono-label" style="margin-bottom:0.4rem;">RESEARCH DIRECTION</div>
+      <div class="mono-label" style="margin-bottom:0.4rem;">Active Direction</div>
       <h4 class="exploring-topic">${item.topic}</h4>
       <p class="exploring-desc">${item.desc}</p>
     </div>
@@ -366,7 +357,6 @@ function initEmailCopy() {
         copyBtn.innerHTML = originalText;
       }, 2000);
     } catch {
-      // Fallback
       showToast(`Email: ${email}`);
     }
   });
@@ -436,14 +426,12 @@ function initNavigation() {
   window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset;
 
-    // Header background toggle
-    if (scrollY > 50) {
+    if (scrollY > 40) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');
     }
 
-    // Active Section Spy
     let currentId = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
