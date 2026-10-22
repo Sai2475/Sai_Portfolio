@@ -4,6 +4,7 @@
   "description": "Personal portfolio of Sai Sukumar — AI/ML Engineer, Deep Learning Researcher & Builder",
   "main": "index.html",
   "scripts": {
+    "build": "echo 'Static site ready'",
     "start": "python -m http.server 3000",
     "dev": "python -m http.server 3000"
   },
